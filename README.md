@@ -2,7 +2,7 @@
 ## Порядок запуска тестов:
 * Клонировать проект используя команду "$ git clone https://github.com/bigsurmoon/mirapolisTestTask" 
 * Открыть проект в IDE (напр. [IntelliJ IDEA](https://www.jetbrains.com/ru-ru/idea/))
-* В терминале ввести команду "./gradlew -test"
+* В терминале ввести команду "./gradlew test"
 * Проверить результаты тестирования в открывающемся автоматически отчете "index.html"
 
 >[!NOTE]
