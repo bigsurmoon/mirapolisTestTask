@@ -11,10 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class RecoveryPageTest extends BaseTest {
 
     private static LoginPage loginPage;
+    private static RecoveryPage recoveryPage;
 
     @BeforeEach
     public void setup() {
         loginPage = new LoginPage(driver);
+        recoveryPage = new RecoveryPage(driver);
     }
 
     @Test
@@ -32,13 +34,13 @@ public class RecoveryPageTest extends BaseTest {
     @Test
     void failedRecoveryWithWrongValues() {
         loginPage.enterRecoveryPage();
-        assertTrue(new RecoveryPage(driver).enterLoginOrPass(RANDOM_VALUE(20)).getFailedRecovery().isDisplayed());
+        assertTrue(recoveryPage.enterLoginOrPass(RANDOM_VALUE(20)).getFailedRecovery().isDisplayed());
     }
 
     @Test
     void returnToLoginPage() {
         loginPage.enterRecoveryPage();
-        new RecoveryPage(driver).backToLogin();
+        recoveryPage.backToLogin();
         assertTrue(loginPage.getForgotPass().isDisplayed());
     }
 }
