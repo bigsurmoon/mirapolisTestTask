@@ -1,20 +1,20 @@
 package pages;
 
 import base.BaseSeleniumPage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class RecoveryPage extends BaseSeleniumPage {
 
     @FindBy(xpath = "//input[@type='text']")
-    public WebElement recoveryInput;
+    private WebElement recoveryInput;
 
     @FindBy(xpath = "//button[@type='submit']")
-    public WebElement recoverySubButton;
+    private WebElement recoverySubButton;
 
     @FindBy(xpath = "/html/body/div/div/div/div[2]/form/table[2]/tbody/tr/td/a/div")
-    public WebElement backToLoginButton;
+    private WebElement backToLoginButton;
 
     public WebElement getSuccessfulRecovery() {
         return successfulRecovery;
@@ -25,13 +25,13 @@ public class RecoveryPage extends BaseSeleniumPage {
     }
 
     @FindBy(xpath = "//div[@class='success']")
-    public WebElement successfulRecovery;
+    private WebElement successfulRecovery;
 
     @FindBy(xpath = "//div[@class='alert']")
-    public WebElement failedRecovery;
+    private WebElement failedRecovery;
 
-    public RecoveryPage() {
-        PageFactory.initElements(driver, this);
+    public RecoveryPage(WebDriver driver) {
+        super(driver);
     }
 
     public WebElement getLoginOrEmailButton() {
@@ -41,11 +41,11 @@ public class RecoveryPage extends BaseSeleniumPage {
     public RecoveryPage enterLoginOrPass(String username) {
         recoveryInput.sendKeys(username);
         recoverySubButton.click();
-        return new RecoveryPage();
+        return new RecoveryPage(driver);
     }
 
     public RecoveryPage backToLogin() {
         backToLoginButton.click();
-        return new RecoveryPage();
+        return new RecoveryPage(driver);
     }
 }

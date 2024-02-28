@@ -3,6 +3,7 @@ package helper;
 import java.util.Random;
 
 public class TestValues {
+    public static final String BASE_URL = "https://lmslite47vr.demo.mirapolis.ru/mira";
     public static final String USERNAME = "fominaelena";
     public static final String PASSWORD = "1P73BP4Z";
     public static final String USERNAME_WITH_SPACE = " fominaelena";

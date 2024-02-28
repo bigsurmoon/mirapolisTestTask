@@ -1,29 +1,30 @@
 package base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+
+import static helper.TestValues.BASE_URL;
 
 abstract public class BaseSeleniumTest {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        BaseSeleniumPage.setDriver(driver);
+        driver.get(BASE_URL);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         driver.close();
         driver.quit();
