@@ -45,12 +45,12 @@ public class LoginPage extends BaseSeleniumPage {
     }
 
 
-    public MainPage posAuth(String username, String password) {
+    public void positiveAuth(String username, String password) {
         stepsToLogin(username, password);
-        return new MainPage(driver);
+        new MainPage(driver);
     }
 
-    public String negAuth(String username, String password) {
+    public String negativeAuth(String username, String password) {
         stepsToLogin(username, password);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
@@ -67,8 +67,7 @@ public class LoginPage extends BaseSeleniumPage {
     public String getAlertText() {
         try {
             Alert alert = driver.switchTo().alert();
-            String alertText = alert.getText();
-            return alertText;
+            return alert.getText();
         } catch (NoAlertPresentException e) {
             return WRONG_VALUES;
         }
@@ -82,8 +81,8 @@ public class LoginPage extends BaseSeleniumPage {
         return passwordInput.getAttribute("type");
     }
 
-    public RecoveryPage enterRecoveryPage() {
+    public void enterRecoveryPage() {
         forgotPass.click();
-        return new RecoveryPage(driver);
+        new RecoveryPage(driver);
     }
 }

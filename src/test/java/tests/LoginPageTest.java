@@ -24,20 +24,20 @@ public class LoginPageTest extends BaseSeleniumTest {
 
     @Test
     void posLoginTest() {
-        loginPage.posAuth(TestValues.USERNAME, TestValues.PASSWORD);
+        loginPage.positiveAuth(TestValues.USERNAME, TestValues.PASSWORD);
         assertTrue(new MainPage(driver).getMenuButton().isDisplayed());
     }
 
     @Test
-    void spaceButtonBeforeLoginAndValues() {
-        loginPage.posAuth(USERNAME_WITH_SPACE, PASSWORD_WITH_SPACE);
+    void spaceButtonBeforeLogin() {
+        loginPage.positiveAuth(USERNAME_WITH_SPACE, PASSWORD_WITH_SPACE);
         assertTrue(new MainPage(driver).getMenuButton().isDisplayed());
     }
     // Баг, не желательно, чтоб авторизация проходила с пробелами перед тестовыми данными
 
     @Test
     void emptyFieldsLogin() {
-        loginPage.negAuth(EMPTY_USERNAME, EMPTY_PASSWORD);
+        loginPage.negativeAuth(EMPTY_USERNAME, EMPTY_PASSWORD);
         String actualAlertText = loginPage.getAlertText();
         assertEquals(WRONG_VALUES, actualAlertText);
     }
@@ -46,7 +46,7 @@ public class LoginPageTest extends BaseSeleniumTest {
     void maxCharactersInAuthFields() {
         String username = RANDOM_VALUE(160);
         String password = RANDOM_VALUE(160);
-        String actualAlertText = loginPage.negAuth(username, password);
+        String actualAlertText = loginPage.negativeAuth(username, password);
         assertEquals(MAX_LENGTH_CHARS, actualAlertText);
     }
 
