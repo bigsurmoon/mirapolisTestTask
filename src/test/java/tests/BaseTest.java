@@ -1,4 +1,4 @@
-package base;
+package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -10,7 +10,7 @@ import java.time.Duration;
 
 import static helper.TestValues.BASE_URL;
 
-abstract public class BaseSeleniumTest {
+abstract public class BaseTest {
 
     protected static WebDriver driver;
 

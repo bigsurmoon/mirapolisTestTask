@@ -1,6 +1,5 @@
 package tests;
 
-import base.BaseSeleniumTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -9,7 +8,7 @@ import pages.RecoveryPage;
 import static helper.TestValues.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RecoveryPageTest extends BaseSeleniumTest {
+public class RecoveryPageTest extends BaseTest {
 
     private static LoginPage loginPage;
 

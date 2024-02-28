@@ -1,6 +1,5 @@
 package pages;
 
-import base.BaseSeleniumPage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +12,7 @@ import java.time.Duration;
 
 import static helper.TestValues.*;
 
-public class LoginPage extends BaseSeleniumPage {
+public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//input[@name='user']")
     private WebElement loginInput;

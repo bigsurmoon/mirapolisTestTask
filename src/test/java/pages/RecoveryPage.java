@@ -1,11 +1,10 @@
 package pages;
 
-import base.BaseSeleniumPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RecoveryPage extends BaseSeleniumPage {
+public class RecoveryPage extends BasePage {
 
     @FindBy(xpath = "//input[@type='text']")
     private WebElement recoveryInput;
