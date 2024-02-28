@@ -2,7 +2,6 @@ package tests;
 
 import base.BaseSeleniumTest;
 
-import helper.TestValues;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
@@ -24,7 +23,7 @@ public class LoginPageTest extends BaseSeleniumTest {
 
     @Test
     void posLoginTest() {
-        loginPage.positiveAuth(TestValues.USERNAME, TestValues.PASSWORD);
+        loginPage.positiveAuth(USERNAME, PASSWORD);
         assertTrue(new MainPage(driver).getMenuButton().isDisplayed());
     }
 
@@ -44,9 +43,7 @@ public class LoginPageTest extends BaseSeleniumTest {
 
     @Test
     void maxCharactersInAuthFields() {
-        String username = RANDOM_VALUE(160);
-        String password = RANDOM_VALUE(160);
-        String actualAlertText = loginPage.negativeAuth(username, password);
+        String actualAlertText = loginPage.negativeAuth(RANDOM_VALUE(160), RANDOM_VALUE(160));
         assertEquals(MAX_LENGTH_CHARS, actualAlertText);
     }
 
