@@ -22,13 +22,13 @@ public class RecoveryPageTest extends BaseTest {
     @Test
     void successfulRecovery() {
         loginPage.enterRecoveryPage();
-        assertTrue(new RecoveryPage(driver).enterLoginOrPass(USERNAME).getSuccessfulRecovery().isDisplayed());
+        assertTrue(recoveryPage.enterLoginOrPass(USERNAME).getSuccessfulRecovery().isDisplayed());
     }
 
     @Test
     void failedRecoveryWithEmptyFields() {
         loginPage.enterRecoveryPage();
-        assertTrue(new RecoveryPage(driver).enterLoginOrPass(EMPTY_USERNAME).getFailedRecovery().isDisplayed());
+        assertTrue(recoveryPage.enterLoginOrPass(EMPTY_USERNAME).getFailedRecovery().isDisplayed());
     }
 
     @Test
