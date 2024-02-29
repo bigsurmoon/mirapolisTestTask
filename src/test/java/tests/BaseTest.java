@@ -15,7 +15,7 @@ abstract public class BaseTest {
     protected static WebDriver driver;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -25,7 +25,7 @@ abstract public class BaseTest {
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         driver.close();
         driver.quit();
     }
